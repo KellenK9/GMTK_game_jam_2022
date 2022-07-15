@@ -13,3 +13,7 @@ Your game must not contain nudity, or hateful language or visuals. This could se
 Upon submission, you will be asked whether your team created the vast majority of the game's art during the jam. (This does include animations, but not shaders or fonts). And you will be asked if you made the vast majority of the game's music, during the 48 hour period. (This doesn't include sound effects).
 
 This is a way of highlighting the artists and composers who were involved with the jam, and this will not impact your rating.
+
+
+
+# Links to resources used:
