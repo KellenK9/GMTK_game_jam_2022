@@ -1,3 +1,3 @@
 /// Destroy self
 
-instance_destroy(self)
+instance_deactivate_object(self)

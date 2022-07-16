@@ -2,7 +2,7 @@
 
 randomize()
 global.player_health = 3
-global.dice_equipped = 2
+global.dice_equipped = 4
 global.flight_speed = 1
 global.powerup_grabbed = false
 global.damaged = false
@@ -20,3 +20,7 @@ global.bomb_distance = 0
 bomb_max_distance = 10
 bomb_min_distance = 2
 bomb_charge_rate = 0.05
+global.shield_charge = 100
+global.max_shield_charge = global.shield_charge
+min_shield_energy = 20
+global.whip_active = false

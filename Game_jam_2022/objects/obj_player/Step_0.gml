@@ -8,7 +8,9 @@ if(xaxis1 > joystick_deadzone or xaxis2 > joystick_deadzone){
 	if(ship_speed_x < 0){ //Stop on a dime
 		if(ship_speed_x < -dime_stop_cutoff){
 			audio_play_sound(Sound_bump, 1, false)
-			instance_create_depth(x, y + (sprite_height/2), 0, obj_dime_stop_left)
+			instance_activate_object(obj_dime_stop_left)
+			obj_dime_stop_left.x = x
+			obj_dime_stop_left.y = y + (sprite_height/2)
 		}
 		ship_speed_x = 0
 	}
@@ -19,7 +21,9 @@ else if(xaxis1 < -joystick_deadzone or xaxis2 < -joystick_deadzone){
 	if(ship_speed_x > 0){ //Stop on a dime
 		if(ship_speed_x > dime_stop_cutoff){
 			audio_play_sound(Sound_bump, 1, false)
-			instance_create_depth(x + sprite_width, y + (sprite_height/2), 0, obj_dime_stop_right)
+			instance_activate_object(obj_dime_stop_right)
+			obj_dime_stop_right.x = x + sprite_width
+			obj_dime_stop_right.y = y + (sprite_height/2)
 		}
 		ship_speed_x = 0
 	}
@@ -37,7 +41,9 @@ if(yaxis1 > joystick_deadzone or yaxis2 > joystick_deadzone){
 	if(ship_speed_y < 0){ //Stop on a dime
 		if(ship_speed_y < -dime_stop_cutoff){
 			audio_play_sound(Sound_bump, 1, false)
-			instance_create_depth(x + (sprite_width/2), y, 0, obj_dime_stop_top)
+			instance_activate_object(obj_dime_stop_top)
+			obj_dime_stop_top.x = x + (sprite_width/2)
+			obj_dime_stop_top.y = y
 		}
 		ship_speed_y = 0
 	}
@@ -48,7 +54,9 @@ else if(yaxis1 < -joystick_deadzone or yaxis2 < -joystick_deadzone){
 	if(ship_speed_y > 0){ //Stop on a dime
 		if(ship_speed_y > dime_stop_cutoff){
 			audio_play_sound(Sound_bump, 1, false)
-			instance_create_depth(x + (sprite_width/2), y + sprite_height, 0, obj_dime_stop_bottom)
+			instance_activate_object(obj_dime_stop_bottom)
+			obj_dime_stop_bottom.x = x + (sprite_width/2)
+			obj_dime_stop_bottom.y = y + sprite_height
 		}
 		ship_speed_y = 0
 	}
@@ -65,7 +73,10 @@ if(x + ship_speed_x < 0){
 	x = 0
 	if(ship_speed_x < -wall_effect_cutoff){
 		audio_play_sound(Sound_bump, 1, false)
-		instance_create_depth(0, y + (sprite_height/2), -1, obj_wall_bump_effect_x)
+		instance_activate_object(obj_wall_bump_effect_x)
+		obj_wall_bump_effect_x.x = 0
+		obj_wall_bump_effect_x.y = y + (sprite_height/2)
+		obj_wall_bump_effect_x.image_index = 0
 	}
 	ship_speed_x = 0
 }
@@ -73,7 +84,10 @@ else if(x + sprite_width + ship_speed_x > room_width){
 	x = room_width - sprite_width
 	if(ship_speed_x > wall_effect_cutoff){
 		audio_play_sound(Sound_bump, 1, false)
-		instance_create_depth(room_width-1, y + (sprite_height/2), -1, obj_wall_bump_effect_x)
+		instance_activate_object(obj_wall_bump_effect_x)
+		obj_wall_bump_effect_x.x = room_width-1
+		obj_wall_bump_effect_x.y = y + (sprite_height/2)
+		obj_wall_bump_effect_x.image_index = 0
 	}
 	ship_speed_x = 0
 }
@@ -85,7 +99,10 @@ if(y + ship_speed_y < 0){
 	y = 0
 	if(ship_speed_y < -wall_effect_cutoff){
 		audio_play_sound(Sound_bump, 1, false)
-		instance_create_depth(x + (sprite_width/2), 0, -1, obj_wall_bump_effect_y)
+		instance_activate_object(obj_wall_bump_effect_y)
+		obj_wall_bump_effect_y.x = x + (sprite_width/2)
+		obj_wall_bump_effect_y.y = 0
+		obj_wall_bump_effect_y.image_index = 0
 	}
 	ship_speed_y = 0
 }
@@ -93,7 +110,10 @@ else if(y + sprite_height + ship_speed_y > room_height){
 	y = room_height - sprite_height
 	if(ship_speed_y > wall_effect_cutoff){
 		audio_play_sound(Sound_bump, 1, false)
-		instance_create_depth(x + (sprite_width/2), room_height-1, -1, obj_wall_bump_effect_y)
+		instance_activate_object(obj_wall_bump_effect_y)
+		obj_wall_bump_effect_y.x = x + (sprite_width/2)
+		obj_wall_bump_effect_y.y = room_height-1
+		obj_wall_bump_effect_y.image_index = 0
 	}
 	ship_speed_y = 0
 }
@@ -129,12 +149,15 @@ if(global.player_health > 0){
 			global.bomb_distance += bomb_charge_rate
 			audio_play_sound(Sound_charge, 1, false)
 			if(!instance_exists(obj_bomb_bar)){
-				instance_create_depth(x+8, y+20,-1, obj_bomb_bar)
+				instance_activate_object(obj_bomb_bar)
+				obj_bomb_bar.x = x+8
+				obj_bomb_bar.y = y+20
+				obj_bomb_bar.image_index = 0
 			}
 		}
 		if(shoot_released){
 			audio_stop_sound(Sound_charge)
-			instance_destroy(obj_bomb_bar)
+			instance_deactivate_object(obj_bomb_bar)
 			if(global.bomb_distance < bomb_min_distance){
 				audio_play_sound(Sound_splat_small, 1, false)
 			}
@@ -143,5 +166,65 @@ if(global.player_health > 0){
 			}
 			global.bomb_distance = 0
 		}
+	}
+	else{
+		instance_deactivate_object(obj_bomb_bar)
+	}
+	if(global.dice_equipped == 3){
+		instance_activate_object(obj_outline)
+		if(shoot_held){
+			if(global.shield_charge < 1){
+				global.shield_charge = 0
+			}
+			if(!instance_exists(obj_shield) and global.shield_charge > min_shield_energy){
+				instance_activate_object(obj_shield)
+				obj_shield.x = x + (sprite_width/2)
+				obj_shield.y = y + (sprite_height/2)
+			}
+			if(instance_exists(obj_shield)){
+				global.shield_charge -= 1
+			}
+		}
+		else{
+			instance_deactivate_object(obj_shield)
+		}
+		if(global.shield_charge < 1){
+			instance_deactivate_object(obj_shield)
+		}
+		if(!instance_exists(obj_shield) and global.shield_charge < global.max_shield_charge){
+			global.shield_charge += 1
+		}
+	}
+	else{
+		instance_deactivate_object(obj_outline)
+	}
+	if(global.dice_equipped == 4){
+		if(shoot_held){
+			global.whip_active = true
+			if(!instance_exists(obj_whip_node1)){
+				instance_activate_object(obj_whip_node1)
+				obj_whip_node1.x = x + (sprite_width/2)
+				obj_whip_node1.y = y
+			}
+			if(!instance_exists(obj_whip_node2)){
+				instance_activate_object(obj_whip_node2)
+				obj_whip_node2.x = x + (sprite_width/2)
+				obj_whip_node2.y = y
+			}
+			if(!instance_exists(obj_whip_node3)){
+				instance_activate_object(obj_whip_node3)
+				obj_whip_node3.x = x + (sprite_width/2)
+				obj_whip_node3.y = y
+			}
+		}
+		else{
+			global.whip_active = false
+		}
+	}
+	else{
+		global.whip_active = false
+		instance_deactivate_object(obj_whip_node1)
+		instance_deactivate_object(obj_whip_node2)
+		instance_deactivate_object(obj_whip_node3)
 	}
 }
