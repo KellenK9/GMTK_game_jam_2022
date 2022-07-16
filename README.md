@@ -19,3 +19,4 @@ This is a way of highlighting the artists and composers who were involved with t
 # Links to resources used:
 https://www.kenney.nl/assets/casino-audio
 https://enjl.itch.io/background-starry-space
+https://pixabay.com/sound-effects/sci-fi-charge-up-37395/
