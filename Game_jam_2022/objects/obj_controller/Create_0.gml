@@ -15,6 +15,9 @@ background_y2 = 0
 background_y3 = 0
 background_y4 = 0
 
+window_set_cursor(cr_none)
+cursor_sprite = cr_none
+
 //Create instances and deactivate them
 instance_create_depth(x, y, 0, obj_dime_stop_left)
 instance_deactivate_object(obj_dime_stop_left)

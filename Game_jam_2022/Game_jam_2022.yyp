@@ -6,6 +6,7 @@
     {"id":{"name":"spr_bolt","path":"sprites/spr_bolt/spr_bolt.yy",},"order":17,},
     {"id":{"name":"spr_stars4","path":"sprites/spr_stars4/spr_stars4.yy",},"order":3,},
     {"id":{"name":"Sound_splat","path":"sounds/Sound_splat/Sound_splat.yy",},"order":7,},
+    {"id":{"name":"spr_mouse","path":"sprites/spr_mouse/spr_mouse.yy",},"order":25,},
     {"id":{"name":"Sound_explosion","path":"sounds/Sound_explosion/Sound_explosion.yy",},"order":5,},
     {"id":{"name":"obj_dime_stop_right","path":"objects/obj_dime_stop_right/obj_dime_stop_right.yy",},"order":3,},
     {"id":{"name":"obj_whip_node2","path":"objects/obj_whip_node2/obj_whip_node2.yy",},"order":20,},
