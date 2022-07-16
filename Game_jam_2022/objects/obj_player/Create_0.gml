@@ -17,6 +17,6 @@ dime_stop_cutoff = 2 //minimum speed needed to create dime stop effect
 image_index = global.dice_equipped - 1
 time_damaged = 30
 global.bomb_distance = 0
-bomb_max_distance = 6
+bomb_max_distance = 10
 bomb_min_distance = 2
 bomb_charge_rate = 0.05
