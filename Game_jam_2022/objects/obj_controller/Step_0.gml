@@ -7,7 +7,7 @@ if(alarm[0] < 0){
 
 //Spawn grunts
 if(alarm[1] < 0){
-	alarm[1] = grunt_spawn_rate
+	alarm[1] = meteor_spawn_rate
 }
 
 if(global.player_health = 0){

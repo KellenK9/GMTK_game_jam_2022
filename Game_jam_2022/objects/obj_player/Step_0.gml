@@ -200,6 +200,7 @@ if(global.player_health > 0){
 	}
 	if(global.dice_equipped == 4){
 		if(shoot_held){
+			audio_play_sound(Sound_buzz, 1, true)
 			global.whip_active = true
 			if(!instance_exists(obj_whip_node1)){
 				instance_activate_object(obj_whip_node1)
@@ -219,9 +220,11 @@ if(global.player_health > 0){
 		}
 		else{
 			global.whip_active = false
+			audio_stop_sound(Sound_buzz)
 		}
 	}
 	else{
+		audio_stop_sound(Sound_buzz)
 		global.whip_active = false
 		instance_deactivate_object(obj_whip_node1)
 		instance_deactivate_object(obj_whip_node2)
