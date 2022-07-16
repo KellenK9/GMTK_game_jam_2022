@@ -1,0 +1,3 @@
+/// Damaged
+
+global.damaged = false

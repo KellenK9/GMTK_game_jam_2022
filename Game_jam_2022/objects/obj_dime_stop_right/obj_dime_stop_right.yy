@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_dime_stop",
-    "path": "sprites/spr_dime_stop/spr_dime_stop.yy",
+    "name": "spr_dime_stop_right",
+    "path": "sprites/spr_dime_stop_right/spr_dime_stop_right.yy",
   },
   "solid": false,
   "visible": true,
