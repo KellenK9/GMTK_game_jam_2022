@@ -115,3 +115,33 @@ if(global.damaged == true){
 		alarm[1] = time_damaged
 	}
 }
+
+//fire weapons
+if(global.player_health > 0){
+	if(global.dice_equipped == 1){
+		if(shoot_pressed){
+			audio_play_sound(Sound_laser_bolt, 1, false)
+			instance_create_depth(x + (sprite_width/2), y, -1, obj_bolt)
+		}
+	}
+	if(global.dice_equipped == 2){
+		if(shoot_held and global.bomb_distance < bomb_max_distance){
+			global.bomb_distance += bomb_charge_rate
+			audio_play_sound(Sound_charge, 1, false)
+			if(!instance_exists(obj_bomb_bar)){
+				instance_create_depth(x+8, y+20,-1, obj_bomb_bar)
+			}
+		}
+		if(shoot_released){
+			audio_stop_sound(Sound_charge)
+			instance_destroy(obj_bomb_bar)
+			if(global.bomb_distance < bomb_min_distance){
+				audio_play_sound(Sound_splat_small, 1, false)
+			}
+			else{
+				instance_create_depth(x + (sprite_width/2), y, -1, obj_bomb)
+			}
+			global.bomb_distance = 0
+		}
+	}
+}

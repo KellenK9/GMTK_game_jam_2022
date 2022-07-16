@@ -2,7 +2,7 @@
 
 randomize()
 global.player_health = 3
-global.dice_equipped = 1
+global.dice_equipped = 2
 global.flight_speed = 1
 global.powerup_grabbed = false
 global.damaged = false
@@ -16,3 +16,7 @@ wall_effect_cutoff = 2 //minimum speed needed to create wall hit effect
 dime_stop_cutoff = 2 //minimum speed needed to create dime stop effect
 image_index = global.dice_equipped - 1
 time_damaged = 30
+global.bomb_distance = 0
+bomb_max_distance = 6
+bomb_min_distance = 2
+bomb_charge_rate = 0.05

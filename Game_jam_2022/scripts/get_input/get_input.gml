@@ -14,6 +14,10 @@ function get_input() {
 	yaxis1 = (dKey1 - uKey1);
 	xaxis2 = (rKey2 - lKey2);
 	yaxis2 = (dKey2 - uKey2);
+	
+	shoot_pressed = keyboard_check_pressed(vk_space)
+	shoot_held = keyboard_check(vk_space)
+	shoot_released = keyboard_check_released(vk_space)
 
 	if (gamepad_is_connected(0)){
 		rKey = gamepad_button_check(0, gp_padr);
@@ -24,6 +28,24 @@ function get_input() {
 		yaxis1 = gamepad_axis_value(0, gp_axislv)
 		xaxis2 = gamepad_axis_value(0, gp_axisrh)
 		yaxis2 = gamepad_axis_value(0, gp_axisrv)
+		if(gamepad_button_check_pressed(0, gp_shoulderrb) or gamepad_button_check_pressed(0, gp_face1)){
+			shoot_pressed = true
+		}
+		else{
+			shoot_pressed = false
+		}
+		if(gamepad_button_check(0, gp_shoulderrb) or gamepad_button_check(0, gp_face1)){
+			shoot_held = true
+		}
+		else{
+			shoot_held = false
+		}
+		if(gamepad_button_check_released(0, gp_shoulderrb) or gamepad_button_check_released(0, gp_face1)){
+			shoot_released = true
+		}
+		else{
+			shoot_released = false
+		}
 	}
 
 

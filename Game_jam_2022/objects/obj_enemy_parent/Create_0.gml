@@ -1,2 +1,3 @@
 /// Initialize variables
 
+damaged = false
