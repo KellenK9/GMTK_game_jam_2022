@@ -254,4 +254,47 @@ if(global.player_health > 0){
 	if(global.dice_equipped != 3 and global.dice_equipped != 5){
 		instance_deactivate_object(obj_outline)
 	}
+	if(global.dice_equipped == 6){
+		if(shoot_held and global.lightning_distance < lightning_max_distance){
+			global.lightning_distance += lightning_charge_rate
+			audio_play_sound(Sound_charge, 1, false)
+			if(!instance_exists(obj_lightning_bar)){
+				instance_activate_object(obj_lightning_bar)
+				obj_lightning_bar.x = x+8
+				obj_lightning_bar.y = y+20
+				obj_lightning_bar.image_index = 0
+				obj_lightning_bar.image_speed = 1
+			}
+		}
+		if(shoot_released){
+			audio_stop_sound(Sound_charge)
+			instance_deactivate_object(obj_lightning_bar)
+			if(global.lightning_distance < lightning_min_distance){
+				audio_play_sound(Sound_splat_small, 1, false)
+			}
+			else{
+				global.lightning_targets = floor(lightning_max_targets * global.lightning_distance / lightning_max_distance)
+				if(global.lightning_targets == 0){
+					global.lightning_targets = 1
+				}
+				if(instance_number(obj_enemy_parent) > 0){
+					global.first_target = instance_nearest(x + (sprite_width/2), y, obj_enemy_parent)
+				}
+				if(instance_number(obj_enemy_parent) > 1){
+					global.second_target = get_nth_nearest(global.first_target.x, global.first_target.y, obj_enemy_parent, 2)
+				}
+				if(instance_number(obj_enemy_parent) > 2){
+					global.third_target = get_nth_nearest(global.second_target.x, global.second_target.y, obj_enemy_parent, 3)
+				}
+				if(instance_number(obj_enemy_parent) > 0){
+					instance_create_depth(x + (sprite_width/2), y, -1, obj_lightning_bolt)
+				}
+				//Not using max distance to check if instance close enough
+			}
+			global.lightning_distance = 0
+		}
+	}
+	else{
+		instance_deactivate_object(obj_lightning_bar)
+	}
 }

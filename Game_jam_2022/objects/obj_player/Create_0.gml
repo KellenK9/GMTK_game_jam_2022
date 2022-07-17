@@ -24,3 +24,10 @@ global.shield_charge = 100
 global.max_shield_charge = global.shield_charge
 min_shield_energy = 20
 global.whip_active = false
+lightning_max_distance = 64
+lightning_max_targets = 3
+global.lightning_distance = 0
+global.lightning_targets = 1
+lightning_charge_rate = bomb_charge_rate / bomb_max_distance * lightning_max_distance
+lightning_min_distance = bomb_min_distance / bomb_max_distance * lightning_max_distance
+
