@@ -2,7 +2,11 @@
 
 powerup_spawn_rate = 1200 //lower numbers spawn powerups more frequently
 alarm[0] = 120 //start the player off with a powerup
-meteor_spawn_rate = 120
+meteor_spawn_rate = 100
+grow_alien_spawn_rate = 310
+ufo_spawn_rate = 410
+ship_spawn_rate = 210
+spawn_rate_increase = 0.9999
 global.score = 0
 global.game_over = false
 

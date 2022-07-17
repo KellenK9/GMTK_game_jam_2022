@@ -153,6 +153,7 @@ if(global.player_health > 0){
 				obj_bomb_bar.x = x+8
 				obj_bomb_bar.y = y+20
 				obj_bomb_bar.image_index = 0
+				obj_bomb_bar.image_speed = 1
 			}
 		}
 		if(shoot_released){
@@ -196,7 +197,7 @@ if(global.player_health > 0){
 		}
 	}
 	else{
-		instance_deactivate_object(obj_outline)
+		instance_deactivate_object(obj_shield)
 	}
 	if(global.dice_equipped == 4){
 		if(shoot_held){
@@ -229,5 +230,21 @@ if(global.player_health > 0){
 		instance_deactivate_object(obj_whip_node1)
 		instance_deactivate_object(obj_whip_node2)
 		instance_deactivate_object(obj_whip_node3)
+	}
+	if(global.dice_equipped == 5){
+		instance_activate_object(obj_outline)
+		if(shoot_pressed){
+			if(global.shield_charge == global.max_shield_charge){
+				global.shield_charge = 0
+				audio_play_sound(Sound_laser_bolt, 1, false)
+				instance_create_depth(x+(sprite_width/2),y,-2,obj_cannonball)
+			}
+		}
+		if(global.shield_charge < global.max_shield_charge){
+			global.shield_charge += 1
+		}
+	}
+	if(global.dice_equipped != 3 and global.dice_equipped != 5){
+		instance_deactivate_object(obj_outline)
 	}
 }

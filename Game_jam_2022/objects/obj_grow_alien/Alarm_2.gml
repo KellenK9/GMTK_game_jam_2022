@@ -1,0 +1,3 @@
+/// Reset
+
+damaged = false
