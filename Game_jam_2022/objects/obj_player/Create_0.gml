@@ -2,7 +2,7 @@
 
 randomize()
 global.player_health = 3
-global.dice_equipped = 2
+global.dice_equipped = 1
 global.flight_speed = 1
 global.powerup_grabbed = false
 global.damaged = false
