@@ -1,6 +1,6 @@
 /// Initialize Variables
 
-powerup_spawn_rate = 1200 //lower numbers spawn powerups more frequently
+powerup_spawn_rate = 800 //lower numbers spawn powerups more frequently
 alarm[0] = 120 //start the player off with a powerup
 powerup_line_spawn_rate = 3000
 meteor_spawn_rate = 100
