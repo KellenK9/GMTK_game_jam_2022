@@ -64,4 +64,6 @@ instance_deactivate_object(obj_lightning_bar)
 //Add fonts
 draw_set_font(Font1)
 
+//Play music
+audio_play_sound(Sound_space_music1, 1, true)
 
