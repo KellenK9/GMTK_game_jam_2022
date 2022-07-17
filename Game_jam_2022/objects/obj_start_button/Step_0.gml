@@ -12,7 +12,7 @@ else{
 	image_index = 0
 }
 
-if(keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_enter)){
+if(alarm[0] < 0 and keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_enter)){
 	audio_stop_all()
 	audio_play_sound(Sound_button_click, 1, false)
 	room_goto(Room_game)

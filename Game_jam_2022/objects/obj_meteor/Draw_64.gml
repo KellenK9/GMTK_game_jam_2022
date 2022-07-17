@@ -1,5 +1,5 @@
 /// Draw points
 
 if(damaged){
-	draw_text(32, 800, "+100")
+	draw_text(64, 1000, "+100")
 }
