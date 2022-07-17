@@ -136,6 +136,13 @@ if(global.damaged == true){
 	}
 }
 
+//Stop dice rolling when dead
+if(global.player_health < 1){
+	if(alarm[0] > 1){
+		alarm[0] = 1
+	}
+}
+
 //fire weapons
 if(global.player_health > 0){
 	if(global.dice_equipped == 1){

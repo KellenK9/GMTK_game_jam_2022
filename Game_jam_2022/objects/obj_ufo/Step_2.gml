@@ -18,4 +18,14 @@ if(damaged == true and alarm[1] < 0){
 	}
 }
 
-
+if(alarm[2] < 0){
+	if(sprite_index == spr_ufo_mad){
+		alarm[2] = 120
+	}
+	if(sprite_index == spr_ufo_sad){
+		alarm[2] = 180
+	}
+	if(sprite_index == spr_ufo){
+		alarm[2] = 360
+	}
+}
