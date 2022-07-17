@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"spr_dice_powerup","path":"sprites/spr_dice_powerup/spr_dice_powerup.yy",},"order":7,},
     {"id":{"name":"obj_enemy_ship","path":"objects/obj_enemy_ship/obj_enemy_ship.yy",},"order":24,},
+    {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},"order":0,},
     {"id":{"name":"obj_bomb","path":"objects/obj_bomb/obj_bomb.yy",},"order":15,},
     {"id":{"name":"spr_bomb","path":"sprites/spr_bomb/spr_bomb.yy",},"order":18,},
     {"id":{"name":"spr_bolt","path":"sprites/spr_bolt/spr_bolt.yy",},"order":17,},
@@ -98,8 +99,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room_game","path":"rooms/Room_game/Room_game.yy",},},
     {"roomId":{"name":"Room_menu","path":"rooms/Room_menu/Room_menu.yy",},},
+    {"roomId":{"name":"Room_game","path":"rooms/Room_game/Room_game.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

@@ -61,4 +61,7 @@ instance_deactivate_object(obj_whip_node3)
 instance_create_depth(x, y, -1, obj_lightning_bar)
 instance_deactivate_object(obj_lightning_bar)
 
+//Add fonts
+draw_set_font(Font1)
+
 
