@@ -17,7 +17,7 @@ if(place_meeting(x, y, obj_player) and global.damaged == false and damaged == fa
 
 if(place_meeting(x, y, obj_player_projectile_parent)){
 	if(damaged == false){
-		audio_play_sound(Sound_splat_small, 10, false)
+		audio_play_sound(Sound_explosion, 10, false)
 	}
 	damaged = true
 	if(alarm[0] < 0){
@@ -28,7 +28,7 @@ if(place_meeting(x, y, obj_bomb)){
 	bomb_id = instance_place(x, y, obj_bomb)
 	if(bomb_id.sprite_index != spr_bomb){
 		if(damaged == false){
-			audio_play_sound(Sound_splat_small, 10, false)
+			audio_play_sound(Sound_explosion, 10, false)
 		}
 		damaged = true
 		instance_destroy(self)
@@ -43,7 +43,7 @@ if(instance_exists(obj_whip_node1) and instance_exists(obj_whip_node2) and insta
 	collision_line(obj_whip_node2.x+3, obj_whip_node2.y, obj_whip_node3.x+3, obj_whip_node3.y, id, true, false)
 	){
 		if(damaged == false){
-			audio_play_sound(Sound_splat_small, 10, false)
+			audio_play_sound(Sound_explosion, 10, false)
 		}
 		damaged = true
 		if(alarm[0] < 0){
